@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Rodent Solutions Toronto | Premium Rodent Management</title>
+    <meta name="description" content="Toronto's premier rodent control company specializing in non-toxic mice exclusion, structural pest proofing, and residential sanitation across all GTA neighborhoods.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7c3aed',
+                            800: '#6d28d9',
+                            900: '#5b21b6',
+                            950: '#3b0764'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(91, 33, 182, 0.08)',
+                        'purple-glow': '0 20px 40px -15px rgba(124, 58, 237, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf5ff;
+            color: #1e293b;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(124, 58, 237, 0.14);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: pulseGlow 5s ease-in-out infinite;
+        }
+
+        /* Route View Switching */
+        .route-page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.35s ease-in-out;
+        }
+
+        .route-page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Accordion Smooth Transitions */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-700 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-purple-700 via-purple-800 to-purple-950 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-crown text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-heading font-extrabold text-purple-950 tracking-tight block leading-none">Apex Rodent</span>
+                        <span class="text-xs text-purple-700 font-bold tracking-wider uppercase">Solutions Toronto</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#home" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-700 hover:text-purple-700 hover:bg-purple-100/60 transition-all">Home</a>
+                    <a href="#services" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-700 hover:text-purple-700 hover:bg-purple-100/60 transition-all">Services</a>
+                    <a href="#about" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-700 hover:text-purple-700 hover:bg-purple-100/60 transition-all">About Us</a>
+                    <a href="#blog" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-700 hover:text-purple-700 hover:bg-purple-100/60 transition-all">Blog Hub</a>
+                    <a href="#article-mice-control-toronto" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold text-purple-900 bg-purple-100 hover:bg-purple-700 hover:text-white transition-all">Mice Control Guide</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 hover:from-purple-800 hover:to-purple-950 shadow-md hover:shadow-purple-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-xs"></i>
+                        <span>Get Free Quote</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu toggle -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-700 hover:bg-purple-100 focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-purple-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-6 space-y-2">
+            <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-purple-100 hover:text-purple-900">Home</a>
+            <a href="#services" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-purple-100 hover:text-purple-900">Services</a>
+            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-purple-100 hover:text-purple-900">About Us</a>
+            <a href="#blog" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-purple-100 hover:text-purple-900">Blog Hub</a>
+            <a href="#article-mice-control-toronto" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-purple-900 bg-purple-100">Featured Mice Guide</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-center font-semibold text-white bg-purple-700 hover:bg-purple-900 mt-2">Get Free Quote</a>
+        </div>
+    </header>
+
+    <main id="app-content" class="flex-grow">
+        
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <section id="home" class="route-page active">
+            <!-- Hero Section -->
+            <div class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 bg-gradient-to-b from-purple-100/70 via-purple-50/40 to-faf5ff">
+                <div class="absolute top-10 right-10 w-96 h-96 bg-purple-300/30 rounded-full blur-3xl pointer-events-none animate-glow"></div>
+                <div class="absolute -bottom-10 -left-10 w-80 h-80 bg-purple-600/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 border border-purple-300/60 text-purple-900 text-xs font-bold uppercase tracking-wider">
+                                <span class="w-2 h-2 rounded-full bg-purple-700 animate-ping"></span>
+                                Premier Rodent Management in Toronto
+                            </div>
+                            
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                                Advanced & Guaranteed <br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-purple-800 to-purple-950">Rodent Exclusion</span> <br>
+                                For GTA Properties
+                            </h1>
+
+                            <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                                Permanent physical entry sealing, non-toxic IPM treatments, and complete structural protection against winter mice invasions for Toronto homeowners.
+                            </p>
+
+                            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold text-base shadow-lg hover:shadow-purple-glow hover:-translate-y-0.5 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                                    <span>Schedule Inspection Quote</span>
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </a>
+                                <a href="#article-mice-control-toronto" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-purple-900 border border-purple-200 font-semibold text-base hover:bg-purple-50 transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-book-open text-purple-700"></i>
+                                    <span>Read 2026 Mice Guide</span>
+                                </a>
+                            </div>
+
+                            <!-- Trust Badges -->
+                            <div class="pt-8 border-t border-purple-200/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+                                <div>
+                                    <p class="text-2xl font-bold text-purple-900">100%</p>
+                                    <p class="text-xs text-slate-500 font-medium">Poison-Free Exclusion</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-purple-900">All GTA</p>
+                                    <p class="text-xs text-slate-500 font-medium">Local Neighborhood Coverage</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-purple-900">Full Warranty</p>
+                                    <p class="text-xs text-slate-500 font-medium">Guaranteed Prevention</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 relative">
+                            <div class="glass-card rounded-3xl p-4 shadow-xl border border-purple-200 relative z-10 animate-float">
+                                <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80" alt="Apex Professional Inspection" class="rounded-2xl w-full h-80 object-cover shadow-inner">
+                                <div class="mt-4 p-4 rounded-2xl bg-purple-50 border border-purple-200 flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-700 text-white flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Chew-Proof Structural Sealing</h4>
+                                        <p class="text-xs text-slate-600">Heavy stainless steel and copper mesh perimeter barriers.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Highlight -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Why Toronto Property Owners Trust Apex</h2>
+                        <p class="mt-4 text-slate-600">We replace outdated temporary baiting methods with permanent biological engineering and structural fortification.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="glass-card p-8 rounded-3xl hover:shadow-purple-glow transition-all duration-300 border border-purple-100">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Permanent Exclusion</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Sealing foundation weep holes, soffits, and utility entry ports with non-corrosive copper and steel barriers.</p>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-3xl hover:shadow-purple-glow transition-all duration-300 border border-purple-100">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Family & Pet Safe</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">No toxic chemical powders or bait stations that threaten domestic pets or produce drywall odors.</p>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-3xl hover:shadow-purple-glow transition-all duration-300 border border-purple-100">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-city"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Toronto Architecture Experts</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Specialized protocols tailored for Victorian homes, century brickwork, and modern GTA multi-family builds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: SERVICES PAGE ================= -->
+        <section id="services" class="route-page">
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-purple-700 text-xs font-bold uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full border border-purple-200">Our Solutions</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Precision Rodent Management Services</h2>
+                        <p class="mt-4 text-slate-600">Tailored residential and commercial pest exclusion engineering for all Greater Toronto Area neighborhoods.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-purple-50/50 p-8 rounded-3xl border border-purple-100 hover:border-purple-700 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-purple-700 text-white flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">360° Thermal Inspection</h3>
+                            <p class="text-slate-600 text-sm mb-4">Thermal mapping of exterior walls, rooflines, and foundation settling cracks to pinpoint hidden entry channels.</p>
+                            <a href="#contact" class="text-purple-700 font-semibold text-sm hover:underline inline-flex items-center gap-1">Request Audit <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                        </div>
+
+                        <div class="bg-purple-50/50 p-8 rounded-3xl border border-purple-100 hover:border-purple-700 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-purple-700 text-white flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Perimeter Structural Exclusion</h3>
+                            <p class="text-slate-600 text-sm mb-4">Sealing weep holes, AC pipe collars, roof vents, and door sweeps using industrial chew-proof steel alloy mesh.</p>
+                            <a href="#contact" class="text-purple-700 font-semibold text-sm hover:underline inline-flex items-center gap-1">Request Sealing <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                        </div>
+
+                        <div class="bg-purple-50/50 p-8 rounded-3xl border border-purple-100 hover:border-purple-700 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-purple-700 text-white flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-spray-can"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Attic Decontamination & Bio-Clean</h3>
+                            <p class="text-slate-600 text-sm mb-4">HEPA vacuum extraction of droppings, botanical enzymatic odor breakdown, and cellulose insulation restoration.</p>
+                            <a href="#contact" class="text-purple-700 font-semibold text-sm hover:underline inline-flex items-center gap-1">Request Sanitation <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: ABOUT US PAGE ================= -->
+        <section id="about" class="route-page">
+            <div class="py-16 bg-purple-50/60">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-purple-700 text-xs font-bold uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full border border-purple-200">Our Methodology</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Science-Based Integrated Pest Management</h2>
+                        <p class="mt-4 text-slate-600">Apex Rodent Solutions Toronto was established to set a higher standard in urban pest control across Southern Ontario.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-12">
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-purple-950">Solving Root Causes Rather Than Symptoms</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Conventional pest control strategies often rely on repetitive baiting cycles that keep homeowners dependent on subscription visits. Our approach prioritizes physical exclusion and environmental control. By permanently closing the structural gaps rodents use to enter homes during freeze cycles, we eliminate populations permanently without exposing families or urban wildlife to toxic chemical rodenticides.
+                            </p>
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-check text-purple-700"></i>
+                                    <span>Thermal imaging inspection of perimeter gaps</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-check text-purple-700"></i>
+                                    <span>Galvanized steel and copper mesh gap fortification</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-check text-purple-700"></i>
+                                    <span>Botanical scent disruption and eco-friendly enzymatic treatments</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Apex Eco-Exclusion Methodology" class="rounded-3xl shadow-xl w-full h-96 object-cover border-4 border-white">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 4: BLOG HUB PAGE ================= -->
+        <section id="blog" class="route-page">
+            <div class="py-16 bg-purple-50/50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-purple-700 text-xs font-bold uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full border border-purple-200">Knowledge Center</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Urban Rodent Educational Hub</h2>
+                        <p class="mt-4 text-slate-600">Expert analysis, structural maintenance tips, and pest prevention guides for Toronto residents.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Featured Article Card -->
+                        <div class="glass-card rounded-3xl overflow-hidden border border-purple-200 shadow-md hover:shadow-xl transition-all">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Toronto Home Pest Protection" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 text-xs text-purple-700 font-bold mb-2">
+                                    <span><i class="fa-regular fa-calendar"></i> October 2026</span>
+                                    <span>•</span>
+                                    <span>10 Min Read</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 hover:text-purple-700 transition-colors">
+                                    <a href="#article-mice-control-toronto">Apex Guide to Mice Control in Toronto: Urban Prevention & Local Case Studies</a>
+                                </h3>
+                                <p class="text-slate-600 text-sm mb-4">
+                                    Detailed 2026 technical guide explaining urban Toronto rodent migration patterns, structural brickwork settlement vulnerabilities, IPM physical exclusion procedures, and local GTA neighborhood success stories.
+                                </p>
+                                <a href="#article-mice-control-toronto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-700 text-white font-medium text-sm hover:bg-purple-900 transition-colors">
+                                    <span>Read Full Guide</span>
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Article Card -->
+                        <div class="glass-card rounded-3xl p-8 border border-purple-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">Property Maintenance</span>
+                                <h3 class="text-2xl font-bold text-slate-900 mt-2 mb-4">How Winter Freeze Cycles Drive Mice Into Toronto Drywall</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                    Discover how sub-zero temperatures force mice to search out warm foundation gaps, chew through unsealed pipe collars, and nest in attic insulation during GTA cold snaps.
+                                </p>
+                            </div>
+                            <a href="#article-mice-control-toronto" class="inline-flex items-center gap-2 text-purple-700 font-bold text-sm hover:underline">
+                                Read full exclusion guide <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 5: FEATURED 1,200+ WORD SEO ARTICLE ================= -->
+        <section id="article-mice-control-toronto" class="route-page">
+            <div class="py-12 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- Breadcrumbs -->
+                    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-6">
+                        <a href="#home" class="hover:text-purple-700">Home</a>
+                        <span>/</span>
+                        <a href="#blog" class="hover:text-purple-700">Blog Hub</a>
+                        <span>/</span>
+                        <span class="text-purple-900 font-semibold">Toronto Mice Control</span>
+                    </div>
+
+                    <!-- Article Title (H1) -->
+                    <header class="mb-10">
+                        <div class="inline-block px-3.5 py-1.5 rounded-full bg-purple-100 text-purple-900 text-xs font-bold uppercase tracking-wider mb-4 border border-purple-200">
+                            Pest Management Special Report
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+                            Apex Guide to Mice Control in Toronto: Urban Prevention & Local Case Studies
+                        </h1>
+                        <div class="flex items-center gap-4 text-xs text-slate-500 border-b border-slate-100 pb-6">
+                            <span><i class="fa-regular fa-user text-purple-700"></i> Apex Technical Operations Team</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock text-purple-700"></i> 1,250+ Words</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-calendar-check text-purple-700"></i> Updated for 2026</span>
+                        </div>
+                    </header>
+
+                    <!-- ARTICLE BODY CONTENT -->
+                    <article class="prose prose-slate max-w-none space-y-8 text-slate-700 leading-relaxed text-base">
+                        
+                        <!-- Introduction Paragraph 1 -->
+                        <p class="text-lg text-slate-600 font-normal leading-relaxed">
+                            Toronto’s unique geographical position along Lake Ontario, combined with its high density of Victorian, Edwardian, and modern residential structures, creates an ideal urban ecosystem for house mice (<em>Mus musculus</em>). As ambient autumn temperatures decline across Southern Ontario, thousands of rodents initiate frantic search patterns for interior warmth, shelter, and persistent food sources.
+                        </p>
+
+                        <!-- SECOND PARAGRAPH CONTAINING EXACT MANDATED SINGLE EXTERNAL LINK -->
+                        <p class="text-base text-slate-700 leading-relaxed">
+                            When homeowners observe early indicators such as nocturnal wall scratching, grease marks along baseboards, or droppings near kitchen cabinetry, rapid professional intervention is paramount. Engaging certified experts for <a href="https://saniiq.com/mice-control-toronto/" target="_blank" rel="noopener" class="text-purple-700 font-bold hover:text-purple-950 underline decoration-purple-700/40 underline-offset-4 hover:decoration-purple-950 transition-colors">Mice Control in Toronto</a> ensures that foundation micro-gaps are located using high-resolution thermal equipment and permanently sealed with heavy-gauge, rust-proof exclusion metals before infestations spread throughout internal wall cavities.
+                        </p>
+
+                        <hr class="border-slate-100 my-8">
+
+                        <!-- H2 Section 1 -->
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-2 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 inline-flex items-center justify-center text-sm font-bold">1</span>
+                            The Unique Urban Rodent Challenge in Toronto
+                        </h2>
+                        
+                        <p>
+                            During late spring and summer, mice inhabit outdoor gardens, parks, and ravines across neighborhoods like High Park, Leslieville, and Scarborough. However, as winter freeze cycles begin in late October, rodents exhibit powerful instinctual drive to invade heated human structures. A mature house mouse can squeeze through a gap as small as 6 millimeters—roughly the diameter of a standard ballpoint pen.
+                        </p>
+
+                        <p>
+                            In Toronto’s historic homes, decades of ground settling and freeze-thaw cycles create microscopic entry pathways across building envelopes. Common entry vulnerabilities include:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+                            <li><strong>Unprotected Brick Weep Holes:</strong> Vertical ventilation gaps in exterior masonry that lack metal mesh covers.</li>
+                            <li><strong>Utility Pipe Penetrations:</strong> Gaps around natural gas conduits, central AC line sets, and exterior hose bibs.</li>
+                            <li><strong>Roofline Gaps:</strong> Warped fascia boards, soffit intersections, and deteriorated chimney flashings.</li>
+                            <li><strong>Garage Door Weather Seals:</strong> Brittle, worn rubber gaskets that leave bottom corner gaps.</li>
+                        </ul>
+
+                        <!-- H2 Section 2 -->
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-6 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 inline-flex items-center justify-center text-sm font-bold">2</span>
+                            Risks of Uncontrolled Rodent Infestations: Wiring & Health Hazards
+                        </h2>
+
+                        <p>
+                            Rodents possess continuously growing incisors that require constant gnawing to manage length. When mice inhabit wall voids and ceiling cavities, they frequently gnaw on electrical wiring insulation, creating severe short-circuit risks and potential fire hazards inside residential structures.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200">
+                                <h4 class="font-bold text-amber-900 text-sm mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-2"></i>Electrical Fire Risk</h4>
+                                <p class="text-xs text-amber-800 leading-relaxed">Mice chew electrical wire sheathing in attic spaces, exposing live copper wire to wood studs and insulation material.</p>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-purple-50 border border-purple-200">
+                                <h4 class="font-bold text-purple-950 text-sm mb-1"><i class="fa-solid fa-shield-virus text-purple-700 mr-2"></i>Health & Allergen Risk</h4>
+                                <p class="text-xs text-purple-900 leading-relaxed">Airborne particles from dried droppings and urine contaminate home HVAC ductwork, triggering severe asthma and allergies.</p>
+                            </div>
+                        </div>
+
+                        <!-- H2 Section 3 -->
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-6 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 inline-flex items-center justify-center text-sm font-bold">3</span>
+                            Why DIY Methods Fail vs. Professional IPM Exclusion
+                        </h2>
+
+                        <p>
+                            Many homeowners attempt to solve mouse problems using over-the-counter poison traps or expandable polyurethane foam cans. Unfortunately, these DIY methods routinely fail:
+                        </p>
+
+                        <div class="space-y-4 my-6">
+                            <div class="p-4 rounded-xl bg-purple-50/50 border-l-4 border-purple-700">
+                                <h3 class="text-lg font-bold text-slate-900">1. Expandable Foam Failure</h3>
+                                <p class="text-sm text-slate-600">Standard expanding foam contains zero rodent resistance. Mice easily chew through polyurethane foam within minutes.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-purple-50/50 border-l-4 border-purple-700">
+                                <h3 class="text-lg font-bold text-slate-900">2. Poison Bait Odor Issues</h3>
+                                <p class="text-sm text-slate-600">Poisoned mice retreat into wall cavities before dying, generating persistent decomposition odors inside drywall.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-purple-50/50 border-l-4 border-purple-700">
+                                <h3 class="text-lg font-bold text-slate-900">3. Failure to Address Exterior Entryways</h3>
+                                <p class="text-sm text-slate-600">Trapping interior mice without sealing perimeter exterior gaps creates an endless cycle as new mice continuously enter.</p>
+                            </div>
+                        </div>
+
+                        <!-- H2 Section 4: Customer Testimonials -->
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-6 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 inline-flex items-center justify-center text-sm font-bold">4</span>
+                            Local Toronto Neighborhood Success Stories & Case Studies
+                        </h2>
+
+                        <p>
+                            Rodent entry dynamics differ by structural architecture across Toronto neighborhoods. Here are documented case studies from our field records:
+                        </p>
+
+                        <!-- Testimonials Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                            <!-- Case Study 1 -->
+                            <div class="glass-card p-6 rounded-2xl border border-purple-200 shadow-sm">
+                                <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 mb-2">Yorkville – Luxury Condo Townhome</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    "We heard faint scratching noises behind our kitchen cabinetry every evening. Apex conducted a thorough thermal audit and discovered unsealed utility line gaps where gas lines entered from the parkade. They sealed everything with galvanized mesh and stainless sealant. Zero activity ever since!"
+                                </p>
+                                <span class="text-xs font-semibold text-purple-900 block">— Harrison & Claire P., Yorkville Residents</span>
+                            </div>
+
+                            <!-- Case Study 2 -->
+                            <div class="glass-card p-6 rounded-2xl border border-purple-200 shadow-sm">
+                                <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 mb-2">Leslieville – Restored Brick Semi</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    "After trying DIY traps for three weeks without success, we called Apex. Their technicians identified open weep holes along our shared brick party wall and fitted stainless steel weep guards. Prompt, professional, and pet-friendly service!"
+                                </p>
+                                <span class="text-xs font-semibold text-purple-900 block">— Samantha L., Leslieville Homeowner</span>
+                            </div>
+
+                            <!-- Case Study 3 -->
+                            <div class="glass-card p-6 rounded-2xl border border-purple-200 shadow-sm">
+                                <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 mb-2">Etobicoke – Detached Split-Level</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    "Mice were nesting in our attic insulation following roof repairs. Apex completely sanitized the attic space with botanical bio-enzymes, sealed roof fascia gaps, and provided a full written warranty."
+                                </p>
+                                <span class="text-xs font-semibold text-purple-900 block">— David R., Etobicoke Resident</span>
+                            </div>
+
+                            <!-- Case Study 4 -->
+                            <div class="glass-card p-6 rounded-2xl border border-purple-200 shadow-sm">
+                                <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 mb-2">North York – Two-Story Residence</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    "The Apex team reinforced our garage door weather stripping and sealed our foundation perimeter using copper mesh. Highly thorough service from start to finish!"
+                                </p>
+                                <span class="text-xs font-semibold text-purple-900 block">— Michael & Karen W., North York</span>
+                            </div>
+                        </div>
+
+                        <!-- H2 Section 5: Interactive FAQ Accordion -->
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-6 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 inline-flex items-center justify-center text-sm font-bold">5</span>
+                            Frequently Asked Questions
+                        </h2>
+
+                        <div class="space-y-3 my-6" id="faq-accordion">
+                            <!-- FAQ 1 -->
+                            <div class="border border-purple-100 rounded-2xl bg-purple-50/40 overflow-hidden">
+                                <button class="faq-btn w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-purple-100/50 transition-colors">
+                                    <span>How quickly can Apex resolve a residential mouse problem?</span>
+                                    <i class="fa-solid fa-chevron-down text-purple-700 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                                    Physical exterior exclusion is completed in a single visit (2 to 4 hours). Combined with interior mechanical trapping, total rodent elimination is typically achieved within 3 to 7 days.
+                                </div>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div class="border border-purple-100 rounded-2xl bg-purple-50/40 overflow-hidden">
+                                <button class="faq-btn w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-purple-100/50 transition-colors">
+                                    <span>Are your exclusion materials safe for children and domestic pets?</span>
+                                    <i class="fa-solid fa-chevron-down text-purple-700 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                                    Yes! We rely on physical chew-proof metals (galvanized steel mesh, heavy copper wool) and non-toxic mechanical traps, avoiding chemical poisons inside living areas.
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="border border-purple-100 rounded-2xl bg-purple-50/40 overflow-hidden">
+                                <button class="faq-btn w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-purple-100/50 transition-colors">
+                                    <span>Can mice chew through steel mesh and copper wool?</span>
+                                    <i class="fa-solid fa-chevron-down text-purple-700 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                                    No. High-gauge steel mesh and heavy copper weave create physical barriers that rodents cannot gnaw through, permanently blocking entry pathways.
+                                </div>
+                            </div>
+
+                            <!-- FAQ 4 -->
+                            <div class="border border-purple-100 rounded-2xl bg-purple-50/40 overflow-hidden">
+                                <button class="faq-btn w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-purple-100/50 transition-colors">
+                                    <span>What areas of Toronto does Apex service?</span>
+                                    <i class="fa-solid fa-chevron-down text-purple-700 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                                    We service all Greater Toronto Area neighborhoods including Downtown Toronto, Yorkville, Leslieville, The Beaches, Etobicoke, North York, Scarborough, and High Park.
+                                </div>
+                            </div>
+
+                            <!-- FAQ 5 -->
+                            <div class="border border-purple-100 rounded-2xl bg-purple-50/40 overflow-hidden">
+                                <button class="faq-btn w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-purple-100/50 transition-colors">
+                                    <span>Do you offer written service warranties?</span>
+                                    <i class="fa-solid fa-chevron-down text-purple-700 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-answer px-5 pb-5 text-sm text-slate-600">
+                                    Yes. All full-home exclusion services include a written warranty covering all sealed entry points.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conclusion -->
+                        <div class="bg-purple-100/60 p-6 rounded-2xl border border-purple-300/60 my-8">
+                            <h3 class="text-xl font-bold text-purple-950 mb-2">Conclusion & Recommendations for Homeowners</h3>
+                            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+                                Proactive structural fortification is the most reliable strategy to ensure a clean, rodent-free living environment in Toronto. By combining physical perimeter exclusion with safe, chemical-free IPM practices, you permanently protect your home without compromising family safety or indoor air quality.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-700 text-white font-bold text-sm hover:bg-purple-900 transition-all">
+                                <span>Schedule Free Property Inspection</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 6: PRIVACY CONTACT PAGE ================= -->
+        <section id="contact" class="route-page">
+            <div class="py-16 bg-purple-50/50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-purple-700 text-xs font-bold uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full border border-purple-200">Customer Support</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Request Your Free Inspection Quote</h2>
+                        <p class="mt-3 text-slate-600 text-sm">
+                            Submit your property details below. Our field technical staff will evaluate your submission and reach out with custom recommendations.
+                        </p>
+                    </div>
+
+                    <!-- Lead Intake Form Card -->
+                    <div class="glass-card rounded-3xl p-8 sm:p-10 border border-purple-200 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-700/10 rounded-bl-full pointer-events-none"></div>
+
+                        <form id="lead-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Full Name -->
+                                <div>
+                                    <label for="form-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Customer Name *</label>
+                                    <input type="text" id="form-name" required placeholder="John Smith" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-700 focus:ring-2 focus:ring-purple-700/20 outline-none transition-all text-sm bg-white">
+                                </div>
+
+                                <!-- Email Address -->
+                                <div>
+                                    <label for="form-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
+                                    <input type="email" id="form-email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-700 focus:ring-2 focus:ring-purple-700/20 outline-none transition-all text-sm bg-white">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Phone Number -->
+                                <div>
+                                    <label for="form-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Phone Number *</label>
+                                    <input type="tel" id="form-phone" required placeholder="(416) 555-0188" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-700 focus:ring-2 focus:ring-purple-700/20 outline-none transition-all text-sm bg-white">
+                                </div>
+
+                                <!-- Toronto Neighborhood Dropdown -->
+                                <div>
+                                    <label for="form-area" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Toronto Neighborhood *</label>
+                                    <select id="form-area" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-700 focus:ring-2 focus:ring-purple-700/20 outline-none transition-all text-sm bg-white">
+                                        <option value="" disabled selected>Select Your Location</option>
+                                        <option value="Yorkville">Yorkville / Midtown</option>
+                                        <option value="Leslieville">Leslieville / The Beaches</option>
+                                        <option value="Downtown Core">Downtown Toronto Core</option>
+                                        <option value="Etobicoke">Etobicoke / Mimico</option>
+                                        <option value="Scarborough">Scarborough / Agincourt</option>
+                                        <option value="North York">North York / Willowdale</option>
+                                        <option value="High Park">High Park / Roncesvalles</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message Area -->
+                            <div>
+                                <label for="form-message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Message & Property Issues *</label>
+                                <textarea id="form-message" rows="4" required placeholder="Please describe any scratching noises, droppings found, or areas requiring inspection..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-700 focus:ring-2 focus:ring-purple-700/20 outline-none transition-all text-sm bg-white"></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div>
+                                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-700 via-purple-800 to-purple-950 text-white font-bold text-base shadow-lg hover:shadow-purple-glow transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Submit Lead Quote Request</span>
+                                </button>
+                            </div>
+
+                            <p class="text-xs text-center text-slate-500 font-normal">
+                                <i class="fa-solid fa-lock text-purple-700 mr-1"></i> Submissions are processed confidentially for service estimate generation.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Submission Modal Overlay -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden transition-opacity duration-300">
+        <div class="glass-card bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-purple-200 transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="w-16 h-16 rounded-2xl bg-purple-100 text-purple-700 mx-auto flex items-center justify-center text-3xl mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Quote Request Received!</h3>
+            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                Thank you for contacting <strong>Apex Rodent Solutions Toronto</strong>. Our technical support team has logged your submission and will contact you within 24 hours.
+            </p>
+            <button id="close-modal-btn" class="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-sm hover:bg-purple-900 transition-colors">
+                Return to Website
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-purple-950 text-white border-t border-purple-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-700 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-crown text-lg"></i>
+                        </div>
+                        <span class="text-xl font-heading font-extrabold tracking-tight">Apex Rodent Solutions</span>
+                    </div>
+                    <p class="text-xs text-purple-200/80 max-w-sm leading-relaxed">
+                        Toronto's premier rodent exclusion firm specializing in non-toxic Integrated Pest Management, structural proofing, and residential bio-sanitation across the Greater Toronto Area.
+                    </p>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300 mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-purple-200">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home Page</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Exclusion Services</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Methodology</a></li>
+                        <li><a href="#blog" class="hover:text-white transition-colors">Blog Knowledge Hub</a></li>
+                        <li><a href="#article-mice-control-toronto" class="hover:text-white transition-colors">Featured Mice Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Service Coverage Areas -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300 mb-3">GTA Service Areas</h4>
+                    <p class="text-xs text-purple-200 leading-relaxed">
+                        Yorkville • Leslieville • Downtown Toronto • Etobicoke • Scarborough • North York • High Park • The Beaches
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-purple-300/60">
+                <p>&copy; 2026 Apex Rodent Solutions Toronto. All rights reserved. Precision Rodent Exclusion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Dynamic Page Title Mapping
+            const pageTitles = {
+                '#home': 'Apex Rodent Solutions Toronto | Premium Rodent Management',
+                '#services': 'Precision Rodent Exclusion Services | Apex Toronto',
+                '#about': 'About Our IPM Methodology | Apex Rodent Solutions',
+                '#blog': 'Urban Rodent Knowledge Hub | Apex Toronto',
+                '#article-mice-control-toronto': 'Apex Guide to Mice Control in Toronto: Urban Prevention & Local Case Studies',
+                '#contact': 'Free Inspection Quote Request | Apex Toronto'
+            };
+
+            // Single Page Router Logic
+            function navigateTo() {
+                let hash = window.location.hash || '#home';
+                const routes = document.querySelectorAll('.route-page');
+                let foundMatch = false;
+
+                routes.forEach(page => {
+                    if ('#' + page.id === hash) {
+                        page.classList.add('active');
+                        foundMatch = true;
+                    } else {
+                        page.classList.remove('active');
+                    }
+                });
+
+                // Fallback to home if unrecognized route
+                if (!foundMatch) {
+                    hash = '#home';
+                    document.getElementById('home').classList.add('active');
+                }
+
+                // Dynamically update document title
+                document.title = pageTitles[hash] || 'Apex Rodent Solutions Toronto';
+
+                // Scroll view smoothly to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Update Active Link Styling in Navigation
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    if (link.getAttribute('href') === hash) {
+                        link.classList.add('bg-purple-100', 'text-purple-900');
+                    } else {
+                        link.classList.remove('bg-purple-100', 'text-purple-900');
+                    }
+                });
+
+                // Close mobile menu drawer
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+
+            // Route Listener
+            window.addEventListener('hashchange', navigateTo);
+            navigateTo(); // Initial trigger
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Accordion Logic
+            const faqButtons = document.querySelectorAll('.faq-btn');
+            faqButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+
+                    answer.classList.toggle('open');
+                    
+                    if (answer.classList.contains('open')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+
+            // Lead Form Submission Logic
+            const leadForm = document.getElementById('lead-form');
+            const modal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modal.classList.remove('hidden');
+                leadForm.reset();
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
